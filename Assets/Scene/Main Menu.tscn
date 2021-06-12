@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Materials/Theme1.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Texturs/MainMenu.jpg" type="Texture" id=2]
+[ext_resource path="res://Assets/Scripts/Main Menu.gd" type="Script" id=3]
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainMenu" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 4.50177
+margin_top = 10.1239
+margin_right = 318.502
+margin_bottom = 226.124
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_right = 314.0
+margin_bottom = 51.0
+theme = ExtResource( 1 )
+text = "Начать"
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 55.0
+margin_right = 314.0
+margin_bottom = 106.0
+theme = ExtResource( 1 )
+text = "Настройки"
+flat = true
+
+[node name="Avtor_Doc" type="Button" parent="VBoxContainer"]
+margin_top = 110.0
+margin_right = 314.0
+margin_bottom = 161.0
+theme = ExtResource( 1 )
+text = "О авторах"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 165.0
+margin_right = 314.0
+margin_bottom = 216.0
+theme = ExtResource( 1 )
+text = "Выход"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Avtor_Doc" to="." method="_on_Avtor_Doc_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

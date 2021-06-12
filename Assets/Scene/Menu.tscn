@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Texturs/pause.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=3]
+
+[node name="Menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="pause" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 386.0
+margin_top = 168.0
+margin_right = 881.0
+margin_bottom = 469.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+margin_right = 495.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 3 )
+text = "Продолжить"
+flat = true
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+margin_top = 55.0
+margin_right = 495.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 3 )
+text = "Заново"
+flat = true
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 110.0
+margin_right = 495.0
+margin_bottom = 161.0
+custom_fonts/font = ExtResource( 3 )
+text = "Настройки"
+flat = true
+
+[node name="Main Menu" type="Button" parent="VBoxContainer"]
+margin_top = 165.0
+margin_right = 495.0
+margin_bottom = 216.0
+custom_fonts/font = ExtResource( 3 )
+text = "В главное меню"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 220.0
+margin_right = 495.0
+margin_bottom = 271.0
+custom_fonts/font = ExtResource( 3 )
+text = "Выход"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_Main_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

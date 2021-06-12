@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Materials/Grass.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Scripts/Game.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Texturs/Panorama_36910.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Scene/Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 20, 0.2, 20 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 10, 0.1, 10 )
+
+[sub_resource type="PanoramaSky" id=3]
+panorama = ExtResource( 3 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+
+[node name="Level0" type="Node"]
+script = ExtResource( 2 )
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="Player" parent="World" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74091, 0 )
+
+[node name="Pol" type="Spatial" parent="World"]
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Pol"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="World/Pol/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Pol/MeshInstance/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World/Pol"]
+environment = SubResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="World/Pol"]
+transform = Transform( -4.1088e-08, -0.341216, 0.939985, -1.4915e-08, 0.939985, 0.341216, -1, 0, -4.37114e-08, 0, 88.7831, 21.6358 )
+
+[node name="ui" type="Control" parent="."]
+anchor_right = 0.03125
+anchor_bottom = 0.0555556
+__meta__ = {
+"_edit_use_anchors_": false
+}

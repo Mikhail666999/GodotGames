@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Texturs/pause.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Materials/Theme1.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/Texturs/quit.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scripts/Menu_Settings.gd" type="Script" id=5]
+
+[node name="Menu_Setting" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="pause" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 1 )
+flip_h = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ButtExit" type="Button" parent="."]
+margin_left = 18.0
+margin_top = 11.0
+margin_right = 235.0
+margin_bottom = 62.0
+theme = ExtResource( 3 )
+button_mask = 7
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ButtExit"]
+margin_left = 45.0
+margin_top = -1.0
+margin_right = 149.0
+margin_bottom = 52.0
+text = "Назад"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 395.0
+margin_top = 164.0
+margin_right = 895.0
+margin_bottom = 471.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Sens_mouse" type="Label" parent="VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 2 )
+text = "Чувствительность мыши : "
+align = 1
+valign = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Sens_mouse"]
+margin_left = 111.0
+margin_top = 55.0
+margin_right = 359.0
+margin_bottom = 87.0
+theme = ExtResource( 3 )
+max_value = 2.0
+step = 0.01
+value = 0.2
+scrollable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Sens_mouse"]
+margin_left = 452.755
+margin_top = 1.61232
+margin_right = 509.755
+margin_bottom = 54.6123
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ButtExit" to="." method="_on_ButtExit_pressed"]
